@@ -65,7 +65,7 @@ The script does the following:
 Run the script using Python 3:
 
 ```bash
-python3 installer.py
+sudo python3 pentoolfig.py
 ```
 
 Make sure to give it `sudo` permission, as most tools require administrative privileges to install.
