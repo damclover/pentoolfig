@@ -44,13 +44,10 @@ execc("echo 'deb http://http.kali.org/kali kali-rolling main contrib non-free no
 execc("mkdir -p ~/Documents/Tools")
 
 # Installing another tools...
-execc("sudo git clone https://github.com/Dheerajmadhukar/4-ZERO-3 ~/Documents/Tools")
+execc("sudo git clone https://github.com/Dheerajmadhukar/4-ZERO-3 ~/Documents/Tools/4-ZERO-3")
 execc("sudo chmod +x ~/Documents/Tools/4-ZERO-3/403-bypass.sh")
 
-execc("sudo git clone https://github.com/darklotuskdb/MagicRecon ~/Documents/Tools")
-execc("sudo chmod +x ~/Documents/Tools/MagicRecon/install.sh && ~/Documents/Tools/MagicRecon/install.sh")
-
-execc("sudo git clone https://github.com/damclover/damcrawler ~/Documents/Tools")
+execc("sudo git clone https://github.com/damclover/damcrawler ~/Documents/Tools/damcrawler")
 execc("sudo chmod +x ~/Documents/Tools/damcrawler/install.sh && ~/Documents/Tools/damcrawler/install.sh")
 
 execc("sudo gzip -d /usr/share/wordlists/rockyou.txt.gz")
