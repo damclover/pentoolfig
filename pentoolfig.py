@@ -16,7 +16,10 @@ def install(thing_to_install):
     run(f"sudo apt install {thing_to_install} -y", shell=True)
 
 def install_go_tools():
-    commands = ["sudo go install github.com/projectdiscovery/katana/cmd/katana@latest", "go install github.com/lc/gau/v2/cmd/gau@latest", "go install github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest && echo 'export PATH=$PATH:$HOME/go/bin' >> ~/.bashrc && nuclei -update-templates"]
+    commands = ["sudo go install github.com/projectdiscovery/katana/cmd/katana@latest",
+                "go install github.com/hahwul/dalfox/v2@latest" , 
+                "go install github.com/lc/gau/v2/cmd/gau@latest", 
+                "go install github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest && echo 'export PATH=$PATH:$HOME/go/bin' >> ~/.bashrc && nuclei -update-templates"]
     for c in commands:
         execc(c)
 
