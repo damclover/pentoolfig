@@ -38,7 +38,6 @@ The script automatically installs these using `go install`:
 
 These tools are cloned and installed in `~/Documents/Tools/`:
 
-- [MagicRecon](https://github.com/darklotuskdb/MagicRecon)
 - [4-ZERO-3](https://github.com/Dheerajmadhukar/4-ZERO-3)
 - [damcrawler](https://github.com/damclover/damcrawler)
 
