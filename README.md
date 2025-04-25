@@ -8,8 +8,6 @@ This is a Python automation script that installs a wide range of cybersecurity a
 > ✅ Linux Mint / Ubuntu / Debian (with `apt`)  
 > ✅ WSL (Windows Subsystem for Linux) with internet access
 
----
-
 ## 📦 What It Installs
 
 ### 🛠️ APT Tools
@@ -99,4 +97,3 @@ MIT – Use freely and modify as needed.
 ## 💡 Author
 
 Made by [damclover](https://github.com/damclover) for quick setup of a hacking toolkit in clean environments.
-```
