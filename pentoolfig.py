@@ -5,7 +5,7 @@ tools = ['nmap', 'nikto', 'sqlmap', 'whatweb', 'gobuster', 'ffuf', 'dirb', 'dirb
          'amass', 'metasploit-framework', 'hydra', 'john', 'hashcat', 'curl', 'wget',
          'netcat-openbsd', 'tcpdump', 'zmap', 'masscan', 'enum4linux', 'smbclient', 
          'smbmap', 'ldap-utils', 'feroxbuster', 'sslscan', 'wfuzz', 'xsser', 'recon-ng',
-         'seclists', 'wordlists']
+         'seclists', 'wordlists', 'wafw00f']
 
 libs = ['golang', 'python3', 'python3-pip']
 
