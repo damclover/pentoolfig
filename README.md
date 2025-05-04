@@ -40,6 +40,7 @@ These tools are cloned and installed in `~/Documents/Tools/`:
 
 - [4-ZERO-3](https://github.com/Dheerajmadhukar/4-ZERO-3)
 - [damcrawler](https://github.com/damclover/damcrawler)
+- [ghauri](https://github.com/r0oth3x49/ghauri)
 
 ---
 
@@ -84,12 +85,6 @@ All Git-based tools will be installed into:
 - This script assumes you have internet access.
 - On WSL, make sure DNS resolution works (`ping github.com` to test).
 - The Go-based tools will only work after restarting your shell or sourcing `.bashrc`.
-
----
-
-## 📜 License
-
-MIT – Use freely and modify as needed.
 
 ---
 
