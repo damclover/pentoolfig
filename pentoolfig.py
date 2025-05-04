@@ -7,7 +7,7 @@ tools = ['nmap', 'nikto', 'sqlmap', 'whatweb', 'gobuster', 'ffuf', 'dirb', 'dirb
          'smbmap', 'ldap-utils', 'feroxbuster', 'sslscan', 'wfuzz', 'xsser', 'recon-ng',
          'seclists', 'wordlists', 'wafw00f', 'subfinder', 'iptables', 'phpgcc']
 
-libs = ['golang', 'python3', 'python3-pip']
+libs = ['golang', 'python3', 'python3-pip', 'pipx']
 
 def execc(c):
     run(c, shell=True)
@@ -17,9 +17,10 @@ def install(thing_to_install):
 
 def install_go_tools():
     commands = ["sudo go install github.com/projectdiscovery/katana/cmd/katana@latest",
-                "go install github.com/hahwul/dalfox/v2@latest" , 
-                "go install github.com/lc/gau/v2/cmd/gau@latest", 
-                "go install github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest && echo 'export PATH=$PATH:$HOME/go/bin' >> ~/.bashrc && nuclei -update-templates"]
+                "sudo go install github.com/hahwul/dalfox/v2@latest" , 
+                "sudo go install github.com/lc/gau/v2/cmd/gau@latest", 
+                "sudo go install github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest && echo 'export PATH=$PATH:$HOME/go/bin' >> ~/.bashrc && nuclei -update-templates",
+                "sudo go install github.com/tomnomnom/gf@latest && cp ~/go/bin/gf /usr/bin/ && gf -h && mkdir ~/.gf && git clone https://github.com/Sherlock297/gf_patterns.git && cd gf_patterns/ && cp *.json ~/.gf && gf -list"]
     for c in commands:
         execc(c)
 
@@ -41,6 +42,9 @@ for lib in libs:
 
 # Go tools
 install_go_tools()
+
+# Install uro
+execc("pipx install uro")
 
 # Setting system
 execc("echo 'deb http://http.kali.org/kali kali-rolling main contrib non-free non-free-firmware' | sudo tee /etc/apt/sources.list")
