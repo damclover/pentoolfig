@@ -53,6 +53,9 @@ execc("sudo chmod +x ~/Documents/Tools/4-ZERO-3/403-bypass.sh")
 execc("sudo git clone https://github.com/damclover/damcrawler ~/Documents/Tools/damcrawler")
 execc("sudo chmod +x ~/Documents/Tools/damcrawler/install.sh && ~/Documents/Tools/damcrawler/install.sh")
 
+execc("sudo git clone https://github.com/r0oth3x49/ghauri ~/Documents/Tools/ghauri")
+execc("sudo python3 ~/Documents/Tools/ghauri/setup.py install")
+
 execc("sudo gzip -d /usr/share/wordlists/rockyou.txt.gz")
 
 execc("sudo apt update && sudo apt upgrade -y && sudo apt-get update && sudo apt-get upgrade -y")
