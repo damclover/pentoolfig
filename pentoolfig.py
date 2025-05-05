@@ -12,6 +12,17 @@ libs = ['golang', 'python3', 'python3-pip', 'pipx']
 def execc(c):
     run(c, shell=True)
 
+# Setting system PS: Remove the '#' if you already have mirros and the nameserver NOT configured
+#execc("sudo rm -r /etc/apt/sources.list")
+#execc("sudo touch /etc/apt/sources.list")
+#execc("echo 'deb http://kali.download/kali kali-rolling main contrib non-free non-free-firmware' | sudo tee /etc/apt/sources.list")
+#execc("echo 'deb-src http://kali.download/kali kali-rolling main contrib non-free non-free-firmware' | sudo tee /etc/apt/sources.list")
+
+#execc("echo '' | sudo tee /etc/resolv.conf")
+#execc("echo -e 'nameserver 8.8.8.8\nnameserver 8.8.4.4' | sudo tee /etc/resolf.conf")
+
+execc("mkdir -p ~/Documents/Tools")
+
 def install(thing_to_install):
     run(f"sudo apt install {thing_to_install} -y", shell=True)
 
@@ -45,10 +56,6 @@ install_go_tools()
 
 # Install uro
 execc("pipx install uro")
-
-# Setting system
-execc("echo 'deb http://http.kali.org/kali kali-rolling main contrib non-free non-free-firmware' | sudo tee /etc/apt/sources.list")
-execc("mkdir -p ~/Documents/Tools")
 
 # Installing another tools...
 execc("sudo git clone https://github.com/Dheerajmadhukar/4-ZERO-3 ~/Documents/Tools/4-ZERO-3")
