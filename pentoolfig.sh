@@ -82,6 +82,13 @@ sudo python3 ~/Documents/Tools/ghauri/setup.py install
 echo "Unzipping rockyou.txt.gz..."
 sudo gzip -d /usr/share/wordlists/rockyou.txt.gz
 
+echo "BONUS!!!! Installing Sublime Text (use as 'subl')"
+sudo apt install flatpak -y
+sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+sudo flatpak install flathub com.sublimetext.three -y
+sudo alias subl="flatpak run com.sublimetext.three"
+sudo source ~/.bashrc
+
 # Update and upgrade the system
 echo "Updating and upgrading the system..."
 sudo apt update && sudo apt upgrade -y && sudo apt-get update && sudo apt-get upgrade -y
