@@ -121,8 +121,12 @@ if ! grep -q 'alias subl=' ~/.bashrc; then
     echo "Alias 'subl' added to ~/.bashrc"
 fi
 
-# Source the updated bashrc
+# Reload the bashrc file to ensure the alias is applied immediately
 source ~/.bashrc
+
+# Inform the user
+echo "Sublime Text installed and 'subl' alias is now active!"
+
 
 # Update and upgrade the system
 echo "Updating and upgrading the system..."
