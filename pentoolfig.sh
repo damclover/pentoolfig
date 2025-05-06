@@ -13,7 +13,7 @@ mkdir -p ~/Documents/Tools
 #echo 'deb http://kali.download/kali kali-rolling main contrib non-free non-free-firmware' | sudo tee /etc/apt/sources.list
 #echo 'deb-src http://kali.download/kali kali-rolling main contrib non-free non-free-firmware' | sudo tee /etc/apt/sources.list
 
-# Set DNS servers (Uncomment if server are not already configured)
+# Set DNS servers
 #echo "Configuring DNS servers..."
 #echo -e 'nameserver 8.8.8.8\nnameserver 8.8.4.4' | sudo tee /etc/resolv.conf
 
@@ -38,6 +38,15 @@ for tool in "${tools[@]}"; do
     echo "Installing $tool..."
     sudo apt install -y $tool
 done
+
+# Install php-gcc manually if not found in the repositories
+echo "Installing phpgcc..."
+git clone https://github.com/mohd-anwar/phpgcc.git ~/Documents/Tools/phpgcc
+cd ~/Documents/Tools/phpgcc
+sudo apt install -y php gcc make
+sudo make
+sudo make install
+cd ~ # Return to the home directory after installation
 
 # List of Go tools to install
 go_tools=("github.com/projectdiscovery/katana/cmd/katana" 
