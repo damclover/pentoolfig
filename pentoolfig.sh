@@ -23,7 +23,7 @@ sudo apt update
 
 # Install essential packages
 echo "Installing essential packages..."
-sudo apt install -y build-essential golang python3 python3-pip python3-dev python3-venv curl wget git unzip php gcc make
+sudo apt install -y build-essential golang python3 python3-pip python3-dev python3-venv curl wget git unzip gcc make
 
 # List of tools to install
 tools=('nmap' 'nikto' 'sqlmap' 'whatweb' 'gobuster' 'ffuf' 'dirb' 'dirbuster' 
@@ -31,7 +31,7 @@ tools=('nmap' 'nikto' 'sqlmap' 'whatweb' 'gobuster' 'ffuf' 'dirb' 'dirbuster'
        'amass' 'metasploit-framework' 'hydra' 'john' 'hashcat' 'curl' 'wget'
        'netcat-openbsd' 'tcpdump' 'zmap' 'masscan' 'enum4linux' 'smbclient' 
        'smbmap' 'ldap-utils' 'feroxbuster' 'sslscan' 'wfuzz' 'xsser' 'recon-ng'
-       'seclists' 'wordlists' 'wafw00f' 'subfinder' 'iptables' 'nuclei')
+       'seclists' 'wordlists' 'wafw00f' 'subfinder' 'iptables')
 
 # Install the listed tools
 for tool in "${tools[@]}"; do
@@ -67,27 +67,62 @@ echo "Cloning GitHub repositories and installing additional tools..."
 
 # 4-ZERO-3
 git clone https://github.com/Dheerajmadhukar/4-ZERO-3 ~/Documents/Tools/4-ZERO-3
-chmod +x ~/Documents/Tools/4-ZERO-3/403-bypass.sh
+sudo chmod +x ~/Documents/Tools/4-ZERO-3/403-bypass.sh
 
 # damcrawler
 git clone https://github.com/damclover/damcrawler ~/Documents/Tools/damcrawler
-chmod +x ~/Documents/Tools/damcrawler/install.sh
-~/Documents/Tools/damcrawler/install.sh
+cd ~/Documents/Tools/damcrawler
+sudo chmod +x install.sh
+sudo ./install.sh
+cd ~
 
 # ghauri
 git clone https://github.com/r0oth3x49/ghauri ~/Documents/Tools/ghauri
-sudo python3 ~/Documents/Tools/ghauri/setup.py install
+cd ~/Documents/Tools/ghauri
+pip install -r requirements.txt --break-system-packages
+pip install setuptools --break-system-packages
+sudo pip install setuptools --break-system-packages
+sudo python3 setup.py install
+cd ~
 
 # Unzip rockyou wordlist if available
 echo "Unzipping rockyou.txt.gz..."
 sudo gzip -d /usr/share/wordlists/rockyou.txt.gz
 
+# Ensure the proper Kali repository exists
+REPO_LINE="deb http://http.kali.org/kali kali-rolling main contrib non-free non-free-firmware"
+if ! grep -Fxq "$REPO_LINE" /etc/apt/sources.list; then
+    echo "Adding missing Kali repository to sources.list..."
+    echo "$REPO_LINE" | sudo tee -a /etc/apt/sources.list
+    sudo apt update
+else
+    echo "Kali repository already present. Continuing..."
+fi
+
+# BONUS: Install Sublime Text via Flatpak
 echo "BONUS!!!! Installing Sublime Text (use as 'subl')"
-sudo apt install flatpak -y
+
+# Install flatpak if not present
+if ! command -v flatpak &> /dev/null; then
+    echo "Installing flatpak..."
+    sudo apt update
+    sudo apt install -y flatpak
+else
+    echo "Flatpak already installed."
+fi
+
+# Add Flathub remote and install Sublime Text
 sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-sudo flatpak install flathub com.sublimetext.three -y
-sudo alias subl="flatpak run com.sublimetext.three"
-sudo source ~/.bashrc
+sudo flatpak install -y flathub com.sublimetext.three
+
+# Add alias to bashrc if not already there
+if ! grep -q 'alias subl=' ~/.bashrc; then
+    echo 'alias subl="flatpak run com.sublimetext.three"' >> ~/.bashrc
+    echo "Alias 'subl' added to ~/.bashrc"
+fi
+
+# Source the updated bashrc
+source ~/.bashrc
 
 # Update and upgrade the system
 echo "Updating and upgrading the system..."
