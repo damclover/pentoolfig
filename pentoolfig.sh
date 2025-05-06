@@ -8,6 +8,7 @@ execc() {
 
 # Create directories for storing tools
 mkdir -p ~/Documents/Tools
+mkdir ~/Downloads
 
 # Set up Kali Linux repositories (Uncomment if mirrors are not already configured)
 #echo 'deb http://kali.download/kali kali-rolling main contrib non-free non-free-firmware' | sudo tee /etc/apt/sources.list
@@ -109,8 +110,6 @@ fi
 
 # BONUS: Install Sublime Text via Flatpak
 echo "BONUS!!!! Installing Sublime Text (use as 'subl')"
-
-# Install flatpak if not present
 if ! command -v flatpak &> /dev/null; then
     echo "Installing flatpak..."
     sudo apt update
@@ -118,23 +117,25 @@ if ! command -v flatpak &> /dev/null; then
 else
     echo "Flatpak already installed."
 fi
-
-# Add Flathub remote and install Sublime Text
 sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 sudo flatpak install -y flathub com.sublimetext.three
-
-# Add alias to bashrc if not already there
 if ! grep -q 'alias subl=' ~/.bashrc; then
     echo 'alias subl="flatpak run com.sublimetext.three"' >> ~/.bashrc
     echo "Alias 'subl' added to ~/.bashrc"
 fi
-
-# Reload the bashrc file to ensure the alias is applied immediately
 source ~/.bashrc
-
-# Inform the user
 echo "Sublime Text installed and 'subl' alias is now active!"
 
+# BONUS2: Install Burp Suite
+cd ~/Downloads
+sudo apt update
+sudo apt install openjdk-11-jdk
+wget "https://portswigger.net/burp/releases/download?product=community&version=2023.3.2" -O burpsuite_community_v2023.3.2.jar
+mkdir ~/burpsuite
+mv burpsuite_community_v2023.3.2.jar ~/burpsuite/
+echo "java -jar ~/burpsuite/burpsuite_community_v2023.3.2.jar" | sudo tee /usr/local/bin/burps
+sudo chmod +x /usr/local/bin/burps
+source ~/.bashrc 
 
 # Update and upgrade the system
 echo "Updating and upgrading the system..."
