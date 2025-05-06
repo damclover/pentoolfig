@@ -71,6 +71,11 @@ echo "Cloning GitHub repositories and installing additional tools..."
 git clone https://github.com/Dheerajmadhukar/4-ZERO-3 ~/Documents/Tools/4-ZERO-3
 sudo chmod +x ~/Documents/Tools/4-ZERO-3/403-bypass.sh
 
+git clone https://github.com/R3LI4NT/LFIscanner ~/Documents/Tools/LFIscanner
+cd ~/Documents/Tools/LFIscanner
+pip install -r requirements.txt --break-system-packages
+cd ~
+
 # damcrawler
 git clone https://github.com/damclover/damcrawler ~/Documents/Tools/damcrawler
 cd ~/Documents/Tools/damcrawler
