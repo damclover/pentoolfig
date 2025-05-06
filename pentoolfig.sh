@@ -76,6 +76,13 @@ sudo chmod +x install.sh
 sudo ./install.sh
 cd ~
 
+# anonup
+git clone https://github.com/damclover/anonup ~/Documents/Tools/anonup
+cd ~/Documents/Tools/anonup
+sudo chmod +x install.sh
+./install.sh
+cd ~
+
 # ghauri
 git clone https://github.com/r0oth3x49/ghauri ~/Documents/Tools/ghauri
 cd ~/Documents/Tools/ghauri
