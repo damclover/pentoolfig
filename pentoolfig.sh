@@ -126,16 +126,10 @@ fi
 source ~/.bashrc
 echo "Sublime Text installed and 'subl' alias is now active!"
 
-# BONUS2: Install Burp Suite
-cd ~/Downloads
+# BONUS2: Install Burp Suite (run as 'burpsuite')
+cd ~
 sudo apt update
-sudo apt install openjdk-11-jdk
-wget "https://portswigger.net/burp/releases/download?product=community&version=2023.3.2" -O burpsuite_community_v2023.3.2.jar
-mkdir ~/burpsuite
-mv burpsuite_community_v2023.3.2.jar ~/burpsuite/
-echo "java -jar ~/burpsuite/burpsuite_community_v2023.3.2.jar" | sudo tee /usr/local/bin/burps
-sudo chmod +x /usr/local/bin/burps
-source ~/.bashrc 
+sudo apt install burpsuite -y
 
 # Update and upgrade the system
 echo "Updating and upgrading the system..."
