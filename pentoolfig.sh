@@ -31,7 +31,8 @@ tools=('nmap' 'nikto' 'sqlmap' 'whatweb' 'gobuster' 'ffuf' 'dirb' 'dirbuster'
        'amass' 'metasploit-framework' 'hydra' 'john' 'hashcat' 'curl' 'wget'
        'netcat-openbsd' 'tcpdump' 'zmap' 'masscan' 'enum4linux' 'smbclient' 
        'smbmap' 'ldap-utils' 'feroxbuster' 'sslscan' 'wfuzz' 'xsser' 'recon-ng'
-       'seclists' 'wordlists' 'wafw00f' 'subfinder' 'iptables' 'proxychains4' 'tor')
+       'seclists' 'wordlists' 'wafw00f' 'subfinder' 'iptables' 'proxychains4' 'tor'
+       'searchsploit')
 
 # Install the listed tools
 for tool in "${tools[@]}"; do
