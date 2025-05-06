@@ -23,7 +23,7 @@ sudo apt update
 
 # Install essential packages
 echo "Installing essential packages..."
-sudo apt install -y build-essential golang python3 python3-pip python3-dev python3-venv curl wget git unzip
+sudo apt install -y build-essential golang python3 python3-pip python3-dev python3-venv curl wget git unzip php gcc make
 
 # List of tools to install
 tools=('nmap' 'nikto' 'sqlmap' 'whatweb' 'gobuster' 'ffuf' 'dirb' 'dirbuster' 
@@ -31,22 +31,13 @@ tools=('nmap' 'nikto' 'sqlmap' 'whatweb' 'gobuster' 'ffuf' 'dirb' 'dirbuster'
        'amass' 'metasploit-framework' 'hydra' 'john' 'hashcat' 'curl' 'wget'
        'netcat-openbsd' 'tcpdump' 'zmap' 'masscan' 'enum4linux' 'smbclient' 
        'smbmap' 'ldap-utils' 'feroxbuster' 'sslscan' 'wfuzz' 'xsser' 'recon-ng'
-       'seclists' 'wordlists' 'wafw00f' 'subfinder' 'iptables' 'phpgcc')
+       'seclists' 'wordlists' 'wafw00f' 'subfinder' 'iptables')
 
 # Install the listed tools
 for tool in "${tools[@]}"; do
     echo "Installing $tool..."
     sudo apt install -y $tool
 done
-
-# Install php-gcc manually if not found in the repositories
-echo "Installing phpgcc..."
-git clone https://github.com/mohd-anwar/phpgcc.git ~/Documents/Tools/phpgcc
-cd ~/Documents/Tools/phpgcc
-sudo apt install -y php gcc make
-sudo make
-sudo make install
-cd ~ # Return to the home directory after installation
 
 # List of Go tools to install
 go_tools=("github.com/projectdiscovery/katana/cmd/katana" 
