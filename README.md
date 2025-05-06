@@ -45,6 +45,9 @@ These tools are cloned and installed in `~/Documents/Tools/`:
 
 ---
 
+## Bonus !!!
+- Sublime Text
+
 ## 🧠 How It Works
 
 The script does the following:
