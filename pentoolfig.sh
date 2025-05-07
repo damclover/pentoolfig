@@ -12,7 +12,7 @@ mkdir ~/Documents/Tools/proxys
 mkdir ~/Downloads
 
 # Set up Kali Linux repositories (Uncomment if mirrors are not already configured)
-sudo rm -r /etc/apt/sources.list
+#sudo rm -r /etc/apt/sources.list
 #echo 'deb http://kali.download/kali kali-rolling main contrib non-free non-free-firmware\ndeb-src http://kali.download/kali kali-rolling main contrib non-free non-free-firmware' | sudo tee /etc/apt/sources.list
 
 # Set DNS servers
