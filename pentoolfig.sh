@@ -8,15 +8,20 @@ execc() {
 
 # Create directories for storing tools
 mkdir -p ~/Documents/Tools
+mkdir ~/Documents/Tools/proxys
 mkdir ~/Downloads
 
 # Set up Kali Linux repositories (Uncomment if mirrors are not already configured)
-#echo 'deb http://kali.download/kali kali-rolling main contrib non-free non-free-firmware' | sudo tee /etc/apt/sources.list
-#echo 'deb-src http://kali.download/kali kali-rolling main contrib non-free non-free-firmware' | sudo tee /etc/apt/sources.list
+sudo rm -r /etc/apt/sources.list
+#echo 'deb http://kali.download/kali kali-rolling main contrib non-free non-free-firmware\ndeb-src http://kali.download/kali kali-rolling main contrib non-free non-free-firmware' | sudo tee /etc/apt/sources.list
 
 # Set DNS servers
 #echo "Configuring DNS servers..."
+#sudo rm -r /etc/resolv.conf
 #echo -e 'nameserver 8.8.8.8\nnameserver 8.8.4.4' | sudo tee /etc/resolv.conf
+
+# Creating better proxys configs
+echo -e "dynamic_chain\nproxy_dns\nremote_dns_subnet 224\ntcp_read_time_out 15000\ntcp_connect_time_out 8000\n\n[ProxyList]\nhttp    104.244.75.218    8080\nsocks5  45.63.66.12       3128\nhttp    195.201.225.104   8080\nsocks5  88.99.10.252      1080\nhttp    200.252.206.177   8080\nhttp    177.101.182.38    3128\n\nsocks5  127.0.0.1         9050" | sudo tee ~/Documents/Tools/proxys/privoxy.conf
 
 # Update package lists
 echo "Updating package lists..."
